@@ -1,0 +1,25 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: credential-provider
+nodes:
+- role: control-plane
+  extraMounts:
+    - hostPath: /Users/timseagren/workspace/credentialprovider/bin/
+      containerPath: /opt/credentialprovider/bin
+    - hostPath: /Users/timseagren/workspace/credentialprovider/credential-provider-config.yaml
+      containerPath: /etc/credentialprovider/credential-provider-config.yaml
+    - hostPath: /Users/timseagren/workspace/credentialprovider/aws/
+      containerPath: /root/.aws
+kubeadmConfigPatches:
+# - |
+#   kind: KubeletConfiguration
+#   imageCredentialProviderBinDir: "/opt/credentialprovider/bin/"
+#   imageCredentialProviderConfig: "/etc/credentialprovider/credential-provider-config.yaml"
+- |
+  kind: InitConfiguration
+  nodeRegistration:
+    kubeletExtraArgs:
+      image-credential-provider-bin-dir: "/opt/credentialprovider/bin/"
+      image-credential-provider-config: "/etc/credentialprovider/credential-provider-config.yaml"
+featureGates:
+  "KubeletCredentialProviders": true

@@ -1,0 +1,5 @@
+{
+  "kind": "CredentialProviderRequest",
+  "apiVersion": "v1alpha1",
+  "image": "550496719187.dkr.ecr.us-west-1.amazonaws.com/busybox:latest"
+}
