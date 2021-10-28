@@ -4,11 +4,11 @@ name: credential-provider
 nodes:
 - role: control-plane
   extraMounts:
-    - hostPath: /Users/timseagren/workspace/credentialprovider/bin/
+    - hostPath: ./bin/
       containerPath: /opt/credentialprovider/bin
-    - hostPath: /Users/timseagren/workspace/credentialprovider/credential-provider-config.yaml
+    - hostPath: ./credential-provider-config.yaml
       containerPath: /etc/credentialprovider/credential-provider-config.yaml
-    - hostPath: /Users/timseagren/workspace/credentialprovider/aws/
+    - hostPath: ./aws/
       containerPath: /root/.aws
 kubeadmConfigPatches:
 # - |
