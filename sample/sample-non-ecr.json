@@ -1,0 +1,5 @@
+{
+  "apiVersion": "credentialprovider.kubelet.k8s.io/v1alpha1",
+  "kind": "CredentialProviderRequest",
+  "image": "docker.io/busybox:latest"
+}
