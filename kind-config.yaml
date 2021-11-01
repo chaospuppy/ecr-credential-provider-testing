@@ -21,5 +21,6 @@ kubeadmConfigPatches:
     kubeletExtraArgs:
       image-credential-provider-bin-dir: "/opt/credentialprovider/bin/"
       image-credential-provider-config: "/etc/credentialprovider/credential-provider-config.yaml"
+      v: "8"
 featureGates:
   "KubeletCredentialProviders": true

@@ -2,7 +2,7 @@
 # Script to compile an "ecr" plugin binary used for image credential retreval
 set -euo pipefail
 
-plugin_version="${CREDENTIAL_PLUGIN_VERSION:-v1.21.0-alpha.0}"
+plugin_version="${CREDENTIAL_PLUGIN_VERSION:-282-ecr-credential-plugin-unbounded-hostname}"
 tmpdir=$(mktemp -d)
 declare -a deplist=(docker git)
 
@@ -22,7 +22,7 @@ for dep in ${deplist[@]}; do
 done
 
 # Clone source for binary
-git clone https://github.com/kubernetes/cloud-provider-aws.git "${tmpdir}"
+git clone https://github.com/chaospuppy/cloud-provider-aws.git "${tmpdir}"
 
 # Change branch to appropriate tag
 cd ${tmpdir}/
